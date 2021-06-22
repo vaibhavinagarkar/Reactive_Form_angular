@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'console';
+
+  info;
+constructor(private formBuilder: FormBuilder){
+this.info = this.formBuilder.group({
+email: '',
+password:'',
+address:'',
+address2:'',
+city:'',
+state:'',
+zip:''
+})
+}
+
+
+onSubmit(values= 'any'){
+  console.warn("Form Submit", values)
+}
+  
 }
